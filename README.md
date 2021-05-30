@@ -1,24 +1,40 @@
-# README
+# Bankmaster
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## The Bankmaster is a backend application to test bank operations like deposit, transfer and withdraw.
 
-Things you may want to cover:
+## Features
+* Abstract Modules to busines roles
+* Autorization and Autentication roles
+* Queues and Backgroud Jobs with Sidekiq & Redis
+* Advanced queries with ElasticSearch
+* JavaScript to relatime changes view
+* Internationalization
+* Automatized tests
+* Setup docker
 
-* Ruby version
+## Business Roles
+* Transactions tax
+    - Transfers weekdays business hours = R$ 5,00;
+    - Transfers weekdays non business hours = R$ 7,00;
+    - Transfers when amount greater than a thousand reals = R$ 15,00;
 
-* System dependencies
+### Ruby version
+    2.6.6
+### Rails version
+    5.2.4
+### System dependencies
+    postgresql
+    elasticksearch
+    sidekick
+    redis
+### Database creation
+    rails db:create db:migrate
+### How to run the test suite
+    bundle exec rspec
+### Setup with docker-compose
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Deploy
+    heroku
+### Application links 
+* Source:    https://github.com/ualissonrodrigo/bankmaster
+* Development [Ualisson Rodrigo](https://github.com/ualissonrodrigo )

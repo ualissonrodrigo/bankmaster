@@ -35,10 +35,7 @@
   </tbody>
 </table>         
  <%= link_to t('.new', :default => t("helpers.links.new")),
-                      new_deposit_path(deposit),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>.new")),
-            new_deposit_path,
-            :class => 'btn btn-primary' %>
+                      new_deposit_path(@deposit),
+                      :class => 'btn btn-primary' %>
+                     
 <%= link_to 'Voltar', wellcome_index_path, :class => 'btn btn-warning' %>
