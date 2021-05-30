@@ -10,7 +10,7 @@ class Account < ApplicationRecord
 		if balance.present?
 			balance
 		else
-			1
+			0
 		end
 	end
 end

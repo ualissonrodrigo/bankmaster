@@ -31,7 +31,7 @@
         <% if current_user %>
           <%= menu_item t('activerecord.models.wellcome.sign_out'), destroy_user_session_path %>
           <% else %>
-            <%= form_for @user, url: session_path(:user), html => {class: "navbar-form pull-right"} do |f| %>
+            <%= form_for @user, url: session_path(:user), html => {class: "navbar-form pull-right"} do |f| -%>
             <p><%= f.text_field :email %></p>
             <p><%= f.password_field :password %></p>
             <p><%= f.submit t('activerecord.models.wellcome.sign_in') %></p>
