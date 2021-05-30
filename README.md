@@ -32,9 +32,12 @@
 ### How to run the test suite
     bundle exec rspec
 ### Setup with docker-compose
-
+* Docker
+* docker-compose
+    $ docker-compose up --build
 ### Deploy
     heroku
 ### Application links 
+* Demo:  https://bankmaster.herokuapp.com
 * Source:    https://github.com/ualissonrodrigo/bankmaster
 * Development [Ualisson Rodrigo](https://github.com/ualissonrodrigo )
