@@ -26,6 +26,13 @@
             amount: Valor
             created_at: Criado em
             account_id: Conta
+          transfer: 
+            created_at: Criado em
+            account_id: Conta
+            amount: Valor
+            account_to: Conta de Destino
+            id: Identificador
+
           bank:
             name: Nome
             created_at: Criado em
