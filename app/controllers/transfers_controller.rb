@@ -2,7 +2,7 @@ class TransfersController < ApplicationController
   before_action :set_transfer, only: [:show, :edit, :update, :destroy]
   before_action :verify_transfer, only: [:create]
   before_action :check_account_to, only: [:create]
-  before_action :check_account_to, only: [:create]
+
   # GET /transfers
   # GET /transfers.json
   def index
@@ -27,7 +27,6 @@ class TransfersController < ApplicationController
   # POST /transfers.json
   def create
     @transfer = current_user.account.transfers.new(transfer_params)
-    @deposit.amount = normalize_money(deposit_params[:amount])
     respond_to do |format|
       if @transfer.save
         BankOperations.increment_decrement(@transfer.id, @transfer.account_to, @transfer.amount)

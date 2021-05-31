@@ -22,7 +22,6 @@ class DepositsController < ApplicationController
   # POST /deposits or /deposits.json
   def create
     @deposit = current_user.account.deposits.new(deposit_params)
-    @deposit.amount = normalize_money(deposit_params[:amount])
     respond_to do |format|
       if @deposit.save
         format.html { redirect_to @deposit, notice: 'Deposit was successfully created.' }

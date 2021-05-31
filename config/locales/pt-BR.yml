@@ -24,14 +24,22 @@
         attributes:
           deposit:
             amount: Valor
+            new_deposit: Novo Depósito
             created_at: Criado em
             account_id: Conta
+            id: Identificador
           transfer: 
             created_at: Criado em
             account_id: Conta
             amount: Valor
             account_to: Conta de Destino
             id: Identificador
+          withdraw:
+            account_id: Conta
+            amount: Valor
+            created_at: Criado em
+            id: Identificador
+
 
           bank:
             name: Nome
