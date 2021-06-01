@@ -34,6 +34,8 @@
             amount: Valor
             account_to: Conta de Destino
             id: Identificador
+            transfer_amount: Valor da Transferência
+
           withdraw:
             account_id: Conta
             amount: Valor
@@ -46,6 +48,7 @@
             created_at: Criado em
         errors:
           messages:
+            account_not_found: Conta não encontrada
             record_invalid: 'A validação falhou: %{errors}'
             restrict_dependent_destroy:
               has_one: Não é possível excluir o registro pois existe um %{record} dependente
@@ -161,6 +164,7 @@
           exclusion: não está disponível
           greater_than: deve ser maior que %{count}
           greater_than_or_equal_to: deve ser maior ou igual a %{count}
+          Impossible_transfer_to_self_account: Impossivel Trasferir Para Sua Própra Conta
           inclusion: não está incluído na lista
           invalid: não é válido
           less_than: deve ser menor que %{count}
