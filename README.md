@@ -24,17 +24,10 @@
     5.2.4
 ### System dependencies
     postgresql
-    elasticksearch
-    sidekick
-    redis
 ### Database creation
     rails db:create db:migrate
 ### How to run the test suite
     bundle exec rspec
-### Setup with docker-compose
-* Docker
-* docker-compose
-    $ docker-compose up --build
 ### Deploy
     heroku
 ### Application links 
