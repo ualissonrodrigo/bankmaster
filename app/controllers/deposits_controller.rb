@@ -1,12 +1,14 @@
 class DepositsController < ApplicationController
-  before_action :set_deposit, only: %i[ show edit update destroy ]
+  before_action :set_deposit, only: [:show, :edit, :update, :destroy]
 
-  # GET /deposits or /deposits.json
+  # GET /deposits
+  # GET /deposits.json
   def index
     @deposits = current_user.account.deposits
   end
 
-  # GET /deposits/1 or /deposits/1.json
+  # GET /deposits/1
+  # GET /deposits/1.json
   def show
   end
 
@@ -19,7 +21,8 @@ class DepositsController < ApplicationController
   def edit
   end
 
-  # POST /deposits or /deposits.json
+  # POST /deposits
+  # POST /deposits.json
   def create
     @deposit = current_user.account.deposits.new(deposit_params)
     @deposit.amount = normalize_money(deposit_params[:amount])
@@ -28,30 +31,32 @@ class DepositsController < ApplicationController
         format.html { redirect_to @deposit, notice: 'Deposit was successfully created.' }
         format.json { render :show, status: :created, location: @deposit }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @deposit.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /deposits/1 or /deposits/1.json
+  # PATCH/PUT /deposits/1
+  # PATCH/PUT /deposits/1.json
   def update
     respond_to do |format|
       if @deposit.update(deposit_params)
-        format.html { redirect_to @deposit, notice: "Deposit was successfully updated." }
+        format.html { redirect_to @deposit, notice: 'Deposit was successfully updated.' }
         format.json { render :show, status: :ok, location: @deposit }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @deposit.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /deposits/1 or /deposits/1.json
+  # DELETE /deposits/1
+  # DELETE /deposits/1.json
   def destroy
     @deposit.destroy
     respond_to do |format|
-      format.html { redirect_to deposits_url, notice: "Deposit was successfully destroyed." }
+      format.html { redirect_to deposits_url, notice: 'Deposit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,6 +69,6 @@ class DepositsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def deposit_params
-      params.require(:deposit).permit(:account_id, :amount)
+      params.require(:deposit).permit(:amount)
     end
 end

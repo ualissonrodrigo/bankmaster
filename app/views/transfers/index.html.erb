@@ -18,12 +18,13 @@
       <tr>
         <td><%= link_to transfer.id, transfer_path(transfer) %></td>
         <td><%= transfer.account_id %></td>
-        <td><%= Extenso.real_formatado ( transfer.amount ) %></td>
-        <td><%= t( transfer.account_to) %></td>
-        <td><%= t( transfer.created_at )%></td>
+        <td><%= Extenso.real_formatado( transfer.amount ) %></td>
+        <td><%= transfer.account_to %></td>
+        <td><%=l transfer.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       transfer_path(transfer), :class => 'btn btn-default btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

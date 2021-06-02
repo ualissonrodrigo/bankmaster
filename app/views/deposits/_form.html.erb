@@ -16,20 +16,12 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :account_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :account_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:account_id) %>
-  </div>
-  <div class="form-group">
     <%= f.label :amount, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :amount, :class => 'form-control', :onKeyPress=>"return(moeda(this,'.',',',event))" %>
     </div>
     <%=f.error_span(:amount) %>
   </div>
-
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
@@ -40,3 +32,6 @@
   </div>
 
 <% end %>
+<script>
+  $('.dinheiro').mask('#.##0,00', {reverse: true});
+</script>

@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   after_create :create_account
-
+  
   has_one :account
 
   validates :email, uniqueness: true
-       
+
   def create_account
-     Account.create(user_id: self.id)
+    Account.create(user_id: self.id)
   end
 end

@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:account_id) %>:</strong></dt>
   <dd><%= @deposit.account_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:amount) %>:</strong></dt>
-  <dd><%= Extenso.real_formatado( @deposit.amount ) %></dd>
+  <dd><%= @deposit.amount %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

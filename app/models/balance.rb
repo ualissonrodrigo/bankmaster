@@ -27,4 +27,5 @@ class Balance < ApplicationRecord
       value = 0
     end
   end
+
 end

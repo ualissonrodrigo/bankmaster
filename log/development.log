@@ -10426,3 +10426,1797 @@ Processing by WellcomeController#index as HTML
 Completed 200 OK in 78ms (Views: 72.4ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:20:57 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:7
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.8ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (225.1ms)
+Completed 200 OK in 612ms (Views: 558.5ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:21:01 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (5.0ms)
+  Rendered withdraws/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 46ms (Views: 41.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:21:06 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wzWgUwJtag0DaxjcbQ5atKgdJjXz4OZIBQJp5JmLyqnyBoCBsKW4DLbzFYMj3SuZt2FzmHe4bHXlopDYO/+Xew==", "withdraw"=>{"amount"=>"1500"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:62
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+Completed 500 Internal Server Error in 285ms (ActiveRecord: 7.5ms)
+
+
+  
+NameError (undefined local variable or method `deposit_params' for #<WithdrawsController:0x00007fcc1c0ecc08>
+Did you mean?  deposit_path):
+  
+app/controllers/withdraws_controller.rb:26:in `create'
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:22:39 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wzWgUwJtag0DaxjcbQ5atKgdJjXz4OZIBQJp5JmLyqnyBoCBsKW4DLbzFYMj3SuZt2FzmHe4bHXlopDYO/+Xew==", "withdraw"=>{"amount"=>"1500"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.8ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (1.0ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "1500.0"], ["created_at", "2021-06-02 01:22:39.792109"], ["updated_at", "2021-06-02 01:22:39.792109"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.7ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 10], ["amount", "168.5"], ["created_at", "2021-06-02 01:22:39.802747"], ["updated_at", "2021-06-02 01:22:39.802747"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/10
+Completed 302 Found in 95ms (ActiveRecord: 28.9ms)
+
+
+Started GET "/withdraws/10" for 127.0.0.1 at 2021-06-01 22:22:39 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 37ms (Views: 33.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:22:43 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 49ms (Views: 42.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:22:45 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.9ms)
+  Rendered withdraws/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 74ms (Views: 71.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:22:49 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bM+gm/8XNsAHbodkKC3CJ+scytiupbW8BIJBrZHYHdtd/IBJTd/kwbL2ijtm/rMK9GCfdSr9P4HkIriRM6xACQ==", "withdraw"=>{"amount"=>"1500"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.6ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering withdraws/edit.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.4ms)
+  Rendered withdraws/edit.html.erb within layouts/application (4.7ms)
+Filter chain halted as :check_balance rendered or redirected
+Completed 200 OK in 44ms (Views: 37.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-01 22:22:54 -0300
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-01 22:28:18 -0300
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (0.5ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 92ms (Views: 34.6ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-06-01 22:28:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:28:20 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.3ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 65ms (Views: 46.7ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/deposits/new" for 127.0.0.1 at 2021-06-01 22:28:22 -0300
+Processing by DepositsController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering deposits/new.html.erb within layouts/application
+  Rendered deposits/_form.html.erb (3.4ms)
+  Rendered deposits/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 53ms (Views: 41.8ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/deposits" for 127.0.0.1 at 2021-06-01 22:28:30 -0300
+Processing by DepositsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Sedyp1Rb/g1waodktTgYuw776HiStOxnTMw8JKVl6XZ28+C5FrmqCtYI3tdjwsFPZ0sf9lAP/ac9KOsnfjgj+Q==", "deposit"=>{"account_id"=>"1", "amount"=>"153,20"}, "commit"=>"Criar Depósito"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:27
+Unpermitted parameter: :account_id
+Unpermitted parameter: :account_id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Create (0.8ms)[0m  [1m[32mINSERT INTO "deposits" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "153.2"], ["created_at", "2021-06-02 01:28:30.731952"], ["updated_at", "2021-06-02 01:28:30.731952"]]
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Load (0.3ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:50
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:27
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mBalance Create (0.8ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "deposit_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["deposit_id", 13], ["amount", "321.7"], ["created_at", "2021-06-02 01:28:30.745692"], ["updated_at", "2021-06-02 01:28:30.745692"]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/deposits_controller.rb:30
+Redirected to http://localhost:3000/deposits/13
+Completed 302 Found in 24ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/deposits/13" for 127.0.0.1 at 2021-06-01 22:28:30 -0300
+Processing by DepositsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:67
+  Rendering deposits/show.html.erb within layouts/application
+  Rendered deposits/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:28:32 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.4ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 84ms (Views: 71.7ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:28:33 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.1ms)
+  Rendered withdraws/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:28:42 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V5g63W87Ci/kCvp5rLhoJH6/DW5y8ELVcruiESW8INFmqxoP3fPYLlGS9ybiaxkJYcNYw/aoyOiSG1sth8h9Aw==", "withdraw"=>{"amount"=>"153,20"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.5ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (0.6ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "153.0"], ["created_at", "2021-06-02 01:28:42.090551"], ["updated_at", "2021-06-02 01:28:42.090551"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.9ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 11], ["amount", "168.7"], ["created_at", "2021-06-02 01:28:42.099134"], ["updated_at", "2021-06-02 01:28:42.099134"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/11
+Completed 302 Found in 24ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/withdraws/11" for 127.0.0.1 at 2021-06-01 22:28:42 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/transfers" for 127.0.0.1 at 2021-06-01 22:28:44 -0300
+Processing by TransfersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:9
+  Rendering transfers/index.html.erb within layouts/application
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT "transfers".* FROM "transfers" WHERE "transfers"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/transfers/index.html.erb:17
+  Rendered transfers/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 62ms (Views: 49.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/transfers/new" for 127.0.0.1 at 2021-06-01 22:28:45 -0300
+Processing by TransfersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering transfers/new.html.erb within layouts/application
+  Rendered transfers/_form.html.erb (3.1ms)
+  Rendered transfers/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-01 22:44:39 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (0.5ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 1181ms (ActiveRecord: 17.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `banks_path' for #<#<Class:0x00007f062c01aa98>:0x0000559f1666fb38>):
+    28:           <%= menu_item t('activerecord.models.balance.others'), balance_index_path %>
+    29:         <% end %>
+    30:         <%= menu_group pull: :left do %>
+    31:           <%= menu_item t('activerecord.models.bank.others'), banks_path %>
+    32:         <% end %>
+    33:         <%= menu_group pull: :right do %>
+    34:           <% if current_user %>
+  
+app/views/layouts/application.html.erb:31:in `block (2 levels) in _app_views_layouts_application_html_erb__2617797971189793789_69832242433580'
+app/views/layouts/application.html.erb:30:in `block in _app_views_layouts_application_html_erb__2617797971189793789_69832242433580'
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__2617797971189793789_69832242433580'
+Started GET "/" for 127.0.0.1 at 2021-06-01 22:49:27 -0300
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (1.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (2.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 88ms (Views: 76.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:49:30 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 69ms (Views: 53.0ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:49:32 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 64ms (Views: 52.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/transfers" for 127.0.0.1 at 2021-06-01 22:49:32 -0300
+Processing by TransfersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:9
+  Rendering transfers/index.html.erb within layouts/application
+  [1m[36mTransfer Load (0.5ms)[0m  [1m[34mSELECT "transfers".* FROM "transfers" WHERE "transfers"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/transfers/index.html.erb:17
+  Rendered transfers/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 89ms (Views: 73.1ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/balance/index" for 127.0.0.1 at 2021-06-01 22:49:33 -0300
+Processing by BalanceController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/balance_controller.rb:7
+  Rendering balance/index.html.erb within layouts/application
+  [1m[36mBalance Load (0.6ms)[0m  [1m[34mSELECT "balances".* FROM "balances" WHERE "balances"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/balance/index.html.erb:28
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mDeposit Load (1.0ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  Rendered balance/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 65ms (Views: 56.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-01 22:49:36 -0300
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 46ms (Views: 39.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:49:38 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 49ms (Views: 43.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/deposits/new" for 127.0.0.1 at 2021-06-01 22:49:39 -0300
+Processing by DepositsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering deposits/new.html.erb within layouts/application
+  Rendered deposits/_form.html.erb (6.7ms)
+  Rendered deposits/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 70ms (Views: 67.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/deposits" for 127.0.0.1 at 2021-06-01 22:49:43 -0300
+Processing by DepositsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/vzYEdLvqkTr4xqlFpedi6zt37+Rlez7uOq7CEM9YEPB6EoPkA3+Q02BQxbAbUR/xV0oMVMu/TvJDmwLmGCqzA==", "deposit"=>{"amount"=>"152,00"}, "commit"=>"Criar Depósito"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Create (0.7ms)[0m  [1m[32mINSERT INTO "deposits" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "152.0"], ["created_at", "2021-06-02 01:49:43.765087"], ["updated_at", "2021-06-02 01:49:43.765087"]]
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/deposits_controller.rb:30
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.5ms)
+
+
+  
+NameError (uninitialized constant Deposit::TransactionsJob):
+  
+app/models/deposit.rb:9:in `increment_balance'
+app/controllers/deposits_controller.rb:30:in `block in create'
+app/controllers/deposits_controller.rb:29:in `create'
+Started POST "/deposits" for 127.0.0.1 at 2021-06-01 22:52:28 -0300
+Processing by DepositsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/vzYEdLvqkTr4xqlFpedi6zt37+Rlez7uOq7CEM9YEPB6EoPkA3+Q02BQxbAbUR/xV0oMVMu/TvJDmwLmGCqzA==", "deposit"=>{"amount"=>"152,00"}, "commit"=>"Criar Depósito"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Create (0.5ms)[0m  [1m[32mINSERT INTO "deposits" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "152.0"], ["created_at", "2021-06-02 01:52:28.353188"], ["updated_at", "2021-06-02 01:52:28.353188"]]
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/deposits_controller.rb:30
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.3ms)
+
+
+  
+NameError (uninitialized constant Deposit::TransactionsJob):
+  
+app/models/deposit.rb:9:in `increment_balance'
+app/controllers/deposits_controller.rb:30:in `block in create'
+app/controllers/deposits_controller.rb:29:in `create'
+Started POST "/deposits" for 127.0.0.1 at 2021-06-01 22:55:32 -0300
+Processing by DepositsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/vzYEdLvqkTr4xqlFpedi6zt37+Rlez7uOq7CEM9YEPB6EoPkA3+Q02BQxbAbUR/xV0oMVMu/TvJDmwLmGCqzA==", "deposit"=>{"amount"=>"152,00"}, "commit"=>"Criar Depósito"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Create (0.5ms)[0m  [1m[32mINSERT INTO "deposits" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "152.0"], ["created_at", "2021-06-02 01:55:33.037005"], ["updated_at", "2021-06-02 01:55:33.037005"]]
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:50
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:27
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mBalance Create (1.2ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "deposit_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["deposit_id", 16], ["amount", "320.7"], ["created_at", "2021-06-02 01:55:33.067338"], ["updated_at", "2021-06-02 01:55:33.067338"]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/deposits_controller.rb:30
+Redirected to http://localhost:3000/deposits/16
+Completed 302 Found in 96ms (ActiveRecord: 21.5ms)
+
+
+Started GET "/deposits/16" for 127.0.0.1 at 2021-06-01 22:55:33 -0300
+Processing by DepositsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mDeposit Load (0.3ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:67
+  Rendering deposits/show.html.erb within layouts/application
+  Rendered deposits/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 69ms (Views: 64.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:55:39 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.5ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 52ms (Views: 45.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/deposits/new" for 127.0.0.1 at 2021-06-01 22:55:40 -0300
+Processing by DepositsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering deposits/new.html.erb within layouts/application
+  Rendered deposits/_form.html.erb (3.5ms)
+  Rendered deposits/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 48ms (Views: 45.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/deposits" for 127.0.0.1 at 2021-06-01 22:55:44 -0300
+Processing by DepositsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yuOfrxkw3AXtCWlNugPtw88Iu2YZapQoDJgg1VKdnBn19w2xW9KIAktrMP5s+TQ3prhM6NvRheh9fPfWicBWlg==", "deposit"=>{"amount"=>"145,00"}, "commit"=>"Criar Depósito"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Create (0.9ms)[0m  [1m[32mINSERT INTO "deposits" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "145.0"], ["created_at", "2021-06-02 01:55:44.940695"], ["updated_at", "2021-06-02 01:55:44.940695"]]
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Load (1.5ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:50
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:27
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.5ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mBalance Create (0.8ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "deposit_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["deposit_id", 17], ["amount", "465.7"], ["created_at", "2021-06-02 01:55:44.952892"], ["updated_at", "2021-06-02 01:55:44.952892"]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/deposits_controller.rb:30
+Redirected to http://localhost:3000/deposits/17
+Completed 302 Found in 21ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/deposits/17" for 127.0.0.1 at 2021-06-01 22:55:44 -0300
+Processing by DepositsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:67
+  Rendering deposits/show.html.erb within layouts/application
+  Rendered deposits/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 61ms (Views: 57.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:55:47 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 68ms (Views: 50.6ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:55:48 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.3ms)
+  Rendered withdraws/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:55:53 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WyuhqMYyw7dEEDHXz/S5teaDqzsKMtmlUGazbfU0zPFqGIF6dPoRtvGIPIiBJ8iY+f/+lo5qU5iwxkpRV0CRIw==", "withdraw"=>{"amount"=>"188"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (1.0ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "188.0"], ["created_at", "2021-06-02 01:55:53.416064"], ["updated_at", "2021-06-02 01:55:53.416064"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.5ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 12], ["amount", "277.7"], ["created_at", "2021-06-02 01:55:53.428790"], ["updated_at", "2021-06-02 01:55:53.428790"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/12
+Completed 302 Found in 24ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/withdraws/12" for 127.0.0.1 at 2021-06-01 22:55:53 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.6ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 60ms (Views: 55.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/transfers" for 127.0.0.1 at 2021-06-01 22:55:58 -0300
+Processing by TransfersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:9
+  Rendering transfers/index.html.erb within layouts/application
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT "transfers".* FROM "transfers" WHERE "transfers"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/transfers/index.html.erb:17
+  Rendered transfers/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 65ms (Views: 52.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/transfers/new" for 127.0.0.1 at 2021-06-01 22:55:59 -0300
+Processing by TransfersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering transfers/new.html.erb within layouts/application
+  Rendered transfers/_form.html.erb (4.1ms)
+  Rendered transfers/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 46ms (Views: 43.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/transfers" for 127.0.0.1 at 2021-06-01 22:56:10 -0300
+Processing by TransfersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yBeKvaCPj1Otl24iXsRVwtDWyWm4n2YbyHz8H/iySDj0oBEgSJpqvHoWrwInRvNtT3p+SSSAMIuk/uK6InvAMA==", "transfer"=>{"amount"=>"133", "account_to"=>"1"}, "commit"=>"Criar Transferência"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:69
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:70
+  [1m[36mBalance Load (0.5ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[36mTransfer Create (0.6ms)[0m  [1m[32mINSERT INTO "transfers" ("account_id", "amount", "account_to", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["amount", "133.0"], ["account_to", 1], ["created_at", "2021-06-02 01:56:10.322145"], ["updated_at", "2021-06-02 01:56:10.322145"]]
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:54
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.6ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.6ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "transfer_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["transfer_id", 23], ["amount", "137.7"], ["created_at", "2021-06-02 01:56:10.335980"], ["updated_at", "2021-06-02 01:56:10.335980"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mTransfer Create (0.3ms)[0m  [1m[32mINSERT INTO "transfers" ("account_id", "amount", "account_to", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 1], ["amount", "133.0"], ["account_to", 1], ["created_at", "2021-06-02 01:56:10.341493"], ["updated_at", "2021-06-02 01:56:10.341493"]]
+  ↳ app/services/bank_operations.rb:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.5ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mBalance Create (0.5ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "transfer_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 1], ["transfer_id", 24], ["amount", "4164.4"], ["created_at", "2021-06-02 01:56:10.350030"], ["updated_at", "2021-06-02 01:56:10.350030"]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:30
+Redirected to http://localhost:3000/transfers/23
+Completed 302 Found in 44ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/transfers/23" for 127.0.0.1 at 2021-06-01 22:56:10 -0300
+Processing by TransfersController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:100
+  Rendering transfers/show.html.erb within layouts/application
+  Rendered transfers/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 56ms (Views: 53.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/balance/index" for 127.0.0.1 at 2021-06-01 22:56:13 -0300
+Processing by BalanceController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/balance_controller.rb:7
+  Rendering balance/index.html.erb within layouts/application
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT "balances".* FROM "balances" WHERE "balances"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/balance/index.html.erb:28
+  [1m[36mDeposit Load (0.3ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.3ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mDeposit Load (0.3ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.3ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mTransfer Load (0.3ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  Rendered balance/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 66ms (Views: 59.3ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/balance/index" for 127.0.0.1 at 2021-06-01 22:57:15 -0300
+Processing by BalanceController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/balance_controller.rb:7
+  Rendering balance/index.html.erb within layouts/application
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT "balances".* FROM "balances" WHERE "balances"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/balance/index.html.erb:30
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mTransfer Load (0.1ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  Rendered balance/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 61ms (Views: 54.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/balance/index" for 127.0.0.1 at 2021-06-01 22:57:31 -0300
+Processing by BalanceController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/balance_controller.rb:7
+  Rendering balance/index.html.erb within layouts/application
+  [1m[36mBalance Load (0.6ms)[0m  [1m[34mSELECT "balances".* FROM "balances" WHERE "balances"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/balance/index.html.erb:31
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.3ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mTransfer Load (0.3ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  Rendered balance/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 83ms (Views: 72.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/transfers" for 127.0.0.1 at 2021-06-01 22:57:35 -0300
+Processing by TransfersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:9
+  Rendering transfers/index.html.erb within layouts/application
+  [1m[36mTransfer Load (0.6ms)[0m  [1m[34mSELECT "transfers".* FROM "transfers" WHERE "transfers"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/transfers/index.html.erb:17
+  Rendered transfers/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 56ms (Views: 49.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/transfers/new" for 127.0.0.1 at 2021-06-01 22:57:36 -0300
+Processing by TransfersController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering transfers/new.html.erb within layouts/application
+  Rendered transfers/_form.html.erb (4.2ms)
+  Rendered transfers/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 74ms (Views: 68.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/transfers" for 127.0.0.1 at 2021-06-01 22:57:43 -0300
+Processing by TransfersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h1x6R5fx2Vxecx2HoGpSMkMADj016BgI9tS2qmkN5NK76+Haf+Q8s4ny3KfZ6PSd3Ky5Han3TpiaVqgPs8Rs2g==", "transfer"=>{"amount"=>"125", "account_to"=>"1"}, "commit"=>"Criar Transferência"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:69
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:70
+  [1m[36mBalance Load (0.8ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[36mTransfer Create (0.9ms)[0m  [1m[32mINSERT INTO "transfers" ("account_id", "amount", "account_to", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["amount", "125.0"], ["account_to", 1], ["created_at", "2021-06-02 01:57:43.209477"], ["updated_at", "2021-06-02 01:57:43.209477"]]
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:54
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.9ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "transfer_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["transfer_id", 25], ["amount", "5.7"], ["created_at", "2021-06-02 01:57:43.218608"], ["updated_at", "2021-06-02 01:57:43.218608"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mTransfer Create (0.4ms)[0m  [1m[32mINSERT INTO "transfers" ("account_id", "amount", "account_to", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 1], ["amount", "125.0"], ["account_to", 1], ["created_at", "2021-06-02 01:57:43.225978"], ["updated_at", "2021-06-02 01:57:43.225978"]]
+  ↳ app/services/bank_operations.rb:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mBalance Create (0.6ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "transfer_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 1], ["transfer_id", 26], ["amount", "4289.4"], ["created_at", "2021-06-02 01:57:43.234458"], ["updated_at", "2021-06-02 01:57:43.234458"]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:30
+Redirected to http://localhost:3000/transfers/25
+Completed 302 Found in 40ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/transfers/25" for 127.0.0.1 at 2021-06-01 22:57:43 -0300
+Processing by TransfersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransfer Load (0.3ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:100
+  Rendering transfers/show.html.erb within layouts/application
+  Rendered transfers/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 46ms (Views: 40.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/transfers" for 127.0.0.1 at 2021-06-01 22:57:47 -0300
+Processing by TransfersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:9
+  Rendering transfers/index.html.erb within layouts/application
+  [1m[36mTransfer Load (0.4ms)[0m  [1m[34mSELECT "transfers".* FROM "transfers" WHERE "transfers"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/transfers/index.html.erb:17
+  Rendered transfers/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 85ms (Views: 80.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:57:48 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.4ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 116ms (Views: 107.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:57:49 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (30.9ms)
+  Rendered withdraws/new.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 82ms (Views: 75.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:57:59 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6CDsZvmel/Jbfim5QDl+BIuzet93sd8BMxxRqGp+66nZE8y0S1ZF8+7mJOYO6g8plM8vcvPpVTzTvKiUyAq2ew==", "withdraw"=>{"amount"=>"250,00"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering withdraws/edit.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.5ms)
+  Rendered withdraws/edit.html.erb within layouts/application (4.1ms)
+Filter chain halted as :check_balance rendered or redirected
+Completed 200 OK in 47ms (Views: 40.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:58:10 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AuEw+mhJ6x08xXMNaAo/9zYcqyFaAXTyBdG7SDwIke8Ja6ST6EARkwvPVz0NgmBPPv7zKBn/ohvcsAgbv/do7g==", "withdraw"=>{"amount"=>"10,00"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering withdraws/edit.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.8ms)
+  Rendered withdraws/edit.html.erb within layouts/application (4.7ms)
+Filter chain halted as :check_balance rendered or redirected
+Completed 200 OK in 47ms (Views: 41.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-01 22:58:12 -0300
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 61ms (Views: 55.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:58:15 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.5ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 54ms (Views: 48.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/deposits/new" for 127.0.0.1 at 2021-06-01 22:58:16 -0300
+Processing by DepositsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering deposits/new.html.erb within layouts/application
+  Rendered deposits/_form.html.erb (2.8ms)
+  Rendered deposits/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 50ms (Views: 45.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/deposits" for 127.0.0.1 at 2021-06-01 22:58:22 -0300
+Processing by DepositsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aoY6ZTIDt/m6q81w4e6c0MFEhz9sf6EueKKZGjE0EU9Vkqh7cOHj/hzJlMM3FEUkqPRwsa7EsO4JRk4Z6mnbwA==", "deposit"=>{"amount"=>"7.000,00"}, "commit"=>"Criar Depósito"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Create (0.9ms)[0m  [1m[32mINSERT INTO "deposits" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "7000.0"], ["created_at", "2021-06-02 01:58:22.268231"], ["updated_at", "2021-06-02 01:58:22.268231"]]
+  ↳ app/controllers/deposits_controller.rb:30
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:50
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:27
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mBalance Create (0.6ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "deposit_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["deposit_id", 18], ["amount", "7005.7"], ["created_at", "2021-06-02 01:58:22.276903"], ["updated_at", "2021-06-02 01:58:22.276903"]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/deposits_controller.rb:30
+Redirected to http://localhost:3000/deposits/18
+Completed 302 Found in 20ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/deposits/18" for 127.0.0.1 at 2021-06-01 22:58:22 -0300
+Processing by DepositsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:67
+  Rendering deposits/show.html.erb within layouts/application
+  Rendered deposits/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 47ms (Views: 44.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:58:24 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 68ms (Views: 63.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/deposits/new" for 127.0.0.1 at 2021-06-01 22:58:25 -0300
+Processing by DepositsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering deposits/new.html.erb within layouts/application
+  Rendered deposits/_form.html.erb (2.4ms)
+  Rendered deposits/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wellcome/index" for 127.0.0.1 at 2021-06-01 22:58:28 -0300
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 51ms (Views: 44.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:58:30 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.4ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/deposits/new" for 127.0.0.1 at 2021-06-01 22:58:31 -0300
+Processing by DepositsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering deposits/new.html.erb within layouts/application
+  Rendered deposits/_form.html.erb (19.6ms)
+  Rendered deposits/new.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 62ms (Views: 59.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 22:58:32 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (2.5ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 57ms (Views: 51.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:58:34 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.4ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 48ms (Views: 42.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:58:35 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.0ms)
+  Rendered withdraws/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 57ms (Views: 54.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:58:45 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dNYiORHv3pZpiHY//Ko+GBKOPpDJgtVueOSPrk8mntVF5QLroycMl9wQe2CyeU81DfJrPU3aX1OYRHaS7VLDBw==", "withdraw"=>{"amount"=>"1.500,00"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.4ms)
+  Rendered withdraws/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 51ms (Views: 38.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:58:54 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GVjmmW/dW4LifNoAY8F+NP5QwyX2HTnFtBUQiW/5qZYS0nLw79ShDNV2/jAGSSGM9rKbLLXj7yxtdKPa7AZQlw==", "withdraw"=>{"amount"=>"1.500"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (1.3ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "1.5"], ["created_at", "2021-06-02 01:58:54.041832"], ["updated_at", "2021-06-02 01:58:54.041832"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.1ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.5ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 13], ["amount", "7004.2"], ["created_at", "2021-06-02 01:58:54.049840"], ["updated_at", "2021-06-02 01:58:54.049840"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/13
+Completed 302 Found in 20ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/withdraws/13" for 127.0.0.1 at 2021-06-01 22:58:54 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 40ms (Views: 36.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:58:59 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.5ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 46ms (Views: 42.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:59:01 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (21.8ms)
+  Rendered withdraws/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 68ms (Views: 64.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:59:07 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2ibhtQljqUge236FhoCSqIgrF3CWVgi3UQ/YsAGnCiPrFcFnu6t7SatDc9rIU+OFl1dC3RIOgoqxryGMo9NX8Q==", "withdraw"=>{"amount"=>"15000"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering withdraws/edit.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.6ms)
+  Rendered withdraws/edit.html.erb within layouts/application (5.1ms)
+Filter chain halted as :check_balance rendered or redirected
+Completed 200 OK in 48ms (Views: 42.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:59:21 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zjy39UV29lF+bwKQW2taJO5kuVRywDw6rqY+2eFR3ahttiOcxX8M30llJqA+4wWc5obhXTE+6tN3x42KYq4kqQ==", "withdraw"=>{"amount"=>"1.500"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (0.6ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "1.5"], ["created_at", "2021-06-02 01:59:21.410233"], ["updated_at", "2021-06-02 01:59:21.410233"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.5ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 14], ["amount", "7002.7"], ["created_at", "2021-06-02 01:59:21.417260"], ["updated_at", "2021-06-02 01:59:21.417260"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/14
+Completed 302 Found in 20ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/withdraws/14" for 127.0.0.1 at 2021-06-01 22:59:21 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 40ms (Views: 35.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/transfers" for 127.0.0.1 at 2021-06-01 22:59:28 -0300
+Processing by TransfersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:9
+  Rendering transfers/index.html.erb within layouts/application
+  [1m[36mTransfer Load (0.5ms)[0m  [1m[34mSELECT "transfers".* FROM "transfers" WHERE "transfers"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/transfers/index.html.erb:17
+  Rendered transfers/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 68ms (Views: 63.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/transfers/new" for 127.0.0.1 at 2021-06-01 22:59:30 -0300
+Processing by TransfersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering transfers/new.html.erb within layouts/application
+  Rendered transfers/_form.html.erb (3.6ms)
+  Rendered transfers/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 50ms (Views: 47.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/transfers" for 127.0.0.1 at 2021-06-01 22:59:37 -0300
+Processing by TransfersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wz2iV48kKyEiaOAzOZ36dbs29eT/BqlUG//S/p08hnlnijnKZzHOzvXpIRNAH1zaJJpCxGMZ/8R3fcxbR/UOcQ==", "transfer"=>{"amount"=>"1500", "account_to"=>"1"}, "commit"=>"Criar Transferência"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:69
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:70
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[36mTransfer Create (0.6ms)[0m  [1m[32mINSERT INTO "transfers" ("account_id", "amount", "account_to", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["amount", "1500.0"], ["account_to", 1], ["created_at", "2021-06-02 01:59:37.762673"], ["updated_at", "2021-06-02 01:59:37.762673"]]
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transfers_controller.rb:31
+  [1m[36mTransfer Load (0.3ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:54
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.6ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "transfer_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["transfer_id", 27], ["amount", "5492.7"], ["created_at", "2021-06-02 01:59:37.772295"], ["updated_at", "2021-06-02 01:59:37.772295"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mTransfer Create (0.4ms)[0m  [1m[32mINSERT INTO "transfers" ("account_id", "amount", "account_to", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 1], ["amount", "1500.0"], ["account_to", 1], ["created_at", "2021-06-02 01:59:37.777862"], ["updated_at", "2021-06-02 01:59:37.777862"]]
+  ↳ app/services/bank_operations.rb:23
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:23
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[36mBalance Create (0.5ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "transfer_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 1], ["transfer_id", 28], ["amount", "5789.4"], ["created_at", "2021-06-02 01:59:37.785066"], ["updated_at", "2021-06-02 01:59:37.785066"]]
+  ↳ app/services/bank_operations.rb:30
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/bank_operations.rb:30
+Redirected to http://localhost:3000/transfers/27
+Completed 302 Found in 36ms (ActiveRecord: 9.7ms)
+
+
+Started GET "/transfers/27" for 127.0.0.1 at 2021-06-01 22:59:37 -0300
+Processing by TransfersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mTransfer Load (0.3ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/transfers_controller.rb:100
+  Rendering transfers/show.html.erb within layouts/application
+  Rendered transfers/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 44ms (Views: 39.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/balance/index" for 127.0.0.1 at 2021-06-01 22:59:40 -0300
+Processing by BalanceController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/balance_controller.rb:7
+  Rendering balance/index.html.erb within layouts/application
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT "balances".* FROM "balances" WHERE "balances"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/balance/index.html.erb:31
+  [1m[36mDeposit Load (0.3ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mTransfer Load (0.1ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.2ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mTransfer Load (0.2ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  [1m[36mDeposit Load (0.1ms)[0m  [1m[34mSELECT  "deposits".* FROM "deposits" WHERE "deposits"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:10
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:8
+  [1m[36mTransfer Load (0.1ms)[0m  [1m[34mSELECT  "transfers".* FROM "transfers" WHERE "transfers"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/models/balance.rb:12
+  Rendered balance/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 83ms (Views: 76.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 22:59:44 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.4ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 54ms (Views: 50.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 22:59:48 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (4.3ms)
+  Rendered withdraws/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 22:59:56 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uwxxt83cVBkhjjg3612xJVyt7+2X3gUK9sdzu/VqJ/aKP1FlfxSGGJQWNWiljsAIQ9G6QBOGjzcWZ4qHVx56JA==", "withdraw"=>{"amount"=>"100"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (0.4ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "100.0"], ["created_at", "2021-06-02 01:59:56.098990"], ["updated_at", "2021-06-02 01:59:56.098990"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.6ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.5ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 15], ["amount", "5392.7"], ["created_at", "2021-06-02 01:59:56.110571"], ["updated_at", "2021-06-02 01:59:56.110571"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/15
+Completed 302 Found in 21ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/withdraws/15" for 127.0.0.1 at 2021-06-01 22:59:56 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 56ms (Views: 52.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 23:00:01 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.4ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 46ms (Views: 42.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 23:00:03 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.4ms)
+  Rendered withdraws/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 83ms (Views: 80.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 23:00:07 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SmzLCaJCH0Ez3lmFBcVhT8i7vVmZxVBblguRoVfgONp7X+vbEIrNQIZGVNpLFhBi18fo9B2d2mZ2q2id9ZRlCA==", "withdraw"=>{"amount"=>"1000"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (0.4ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "1000.0"], ["created_at", "2021-06-02 02:00:07.241017"], ["updated_at", "2021-06-02 02:00:07.241017"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.1ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.2ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.6ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 16], ["amount", "4392.7"], ["created_at", "2021-06-02 02:00:07.248691"], ["updated_at", "2021-06-02 02:00:07.248691"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/16
+Completed 302 Found in 25ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/withdraws/16" for 127.0.0.1 at 2021-06-01 23:00:07 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 93ms (Views: 87.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 23:00:09 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.4ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 72ms (Views: 45.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 23:00:11 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.6ms)
+  Rendered withdraws/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 46ms (Views: 43.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/withdraws" for 127.0.0.1 at 2021-06-01 23:00:15 -0300
+Processing by WithdrawsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"82zcGRAaRndl06PUOB9q7NUHEQm/+jWGGbb+SeowvUnCX/zLotKUdtBLrot2zBvByntEpDuiv7v5Fgd1SETgmw==", "withdraw"=>{"amount"=>"1500"}, "commit"=>"Criar Saque"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:67
+  [1m[36mBalance Load (0.4ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Create (0.6ms)[0m  [1m[32mINSERT INTO "withdraws" ("account_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["account_id", 3], ["amount", "1500.0"], ["created_at", "2021-06-02 02:00:15.793560"], ["updated_at", "2021-06-02 02:00:15.793560"]]
+  ↳ app/controllers/withdraws_controller.rb:31
+  [1m[36mWithdraw Load (0.5ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:52
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:38
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mBalance Load (0.1ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:4
+  [1m[36mCACHE Account Load (0.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[36mBalance Create (0.5ms)[0m  [1m[32mINSERT INTO "balances" ("account_id", "withdraw_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["account_id", 3], ["withdraw_id", 17], ["amount", "2892.7"], ["created_at", "2021-06-02 02:00:15.801059"], ["updated_at", "2021-06-02 02:00:15.801059"]]
+  ↳ app/services/bank_operations.rb:41
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/withdraws_controller.rb:31
+Redirected to http://localhost:3000/withdraws/17
+Completed 302 Found in 18ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/withdraws/17" for 127.0.0.1 at 2021-06-01 23:00:15 -0300
+Processing by WithdrawsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mWithdraw Load (0.2ms)[0m  [1m[34mSELECT  "withdraws".* FROM "withdraws" WHERE "withdraws"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:81
+  Rendering withdraws/show.html.erb within layouts/application
+  Rendered withdraws/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 42ms (Views: 38.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 23:00:17 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.3ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 67ms (Views: 62.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/deposits" for 127.0.0.1 at 2021-06-01 23:00:28 -0300
+Processing by DepositsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/deposits_controller.rb:7
+  Rendering deposits/index.html.erb within layouts/application
+  [1m[36mDeposit Load (0.6ms)[0m  [1m[34mSELECT "deposits".* FROM "deposits" WHERE "deposits"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/deposits/index.html.erb:16
+  Rendered deposits/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 46ms (Views: 40.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-01 23:00:31 -0300
+Processing by WellcomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/wellcome_controller.rb:3
+  [1m[36mBalance Load (0.3ms)[0m  [1m[34mSELECT  "balances".* FROM "balances" WHERE "balances"."account_id" = $1 ORDER BY "balances"."id" DESC LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/models/account.rb:9
+  Rendering wellcome/index.html.erb within layouts/application
+  Rendered wellcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/withdraws" for 127.0.0.1 at 2021-06-01 23:00:40 -0300
+Processing by WithdrawsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/withdraws_controller.rb:8
+  Rendering withdraws/index.html.erb within layouts/application
+  [1m[36mWithdraw Load (0.6ms)[0m  [1m[34mSELECT "withdraws".* FROM "withdraws" WHERE "withdraws"."account_id" = $1[0m  [["account_id", 3]]
+  ↳ app/views/withdraws/index.html.erb:16
+  Rendered withdraws/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 55ms (Views: 48.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/withdraws/new" for 127.0.0.1 at 2021-06-01 23:00:43 -0300
+Processing by WithdrawsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ualisson/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  Rendering withdraws/new.html.erb within layouts/application
+  Rendered withdraws/_form.html.erb (2.9ms)
+  Rendered withdraws/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 62ms (Views: 59.2ms | ActiveRecord: 0.2ms)
+
+
