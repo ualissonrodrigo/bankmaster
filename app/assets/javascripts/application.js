@@ -51,3 +51,4 @@ function moeda(a, e, r, t) {
     }
     return !1
 }
+    
