@@ -18,7 +18,7 @@
   <div class="form-group">
     <%= f.label :amount, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :amount, :class => 'form-control' %>
+     <%= f.text_field :amount, :class => 'form-control', :onKeyPress=>"return(moeda(this,'.',',',event))" %>
     </div>
     <%=f.error_span(:amount) %>
   </div>

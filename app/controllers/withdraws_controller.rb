@@ -26,7 +26,7 @@ class WithdrawsController < ApplicationController
   # POST /withdraws.json
   def create
     @withdraw = current_user.account.withdraws.new(withdraw_params)
-
+    @withdraw.amount = normalize_money(withdraw_params[:amount])
     respond_to do |format|
       if @withdraw.save
         format.html { redirect_to @withdraw, notice: 'Withdraw was successfully created.' }

@@ -26,9 +26,9 @@
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_deposit_path,
-            :class => 'btn btn-primary' %>
+</table>         
+ <%= link_to t('.new', :default => t("helpers.links.new")),
+                      new_deposit_path(@deposit),
+                      :class => 'btn btn-primary' %>
+                     
 <%= link_to 'Voltar', wellcome_index_path, :class => 'btn btn-warning' %>

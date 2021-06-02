@@ -27,6 +27,7 @@ class TransfersController < ApplicationController
   # POST /transfers.json
   def create
     @transfer = current_user.account.transfers.new(transfer_params)
+    @transfer.amount = normalize_money(transfer_params[:amount])
     respond_to do |format|
       if @transfer.save
         BankOperations.increment_decrement(@transfer.id, @transfer.account_to, @transfer.amount)
